@@ -12,13 +12,13 @@ public class TestaPrograma {
 
         ContatoRepository bancoDeDados = new ContatoRepository();
 
-        Contato jota = new Contato(1L, "Jota Lopes", "9999-8888");
+        Contato jota = new Contato("Jota Lopes", "9999-8888");
 
         bancoDeDados.salva(jota);
 
-        Contato felipe = new Contato(2L, "Felipe Pontes", "9985-5587");
+        Contato felipe = new Contato("Felipe Pontes", "9985-5587");
 
-        Contato michele = new Contato(3L, "Michele Silva", "9655-8855");
+        Contato michele = new Contato("Michele Silva", "9655-8855");
 
         bancoDeDados.salva(michele);
 
