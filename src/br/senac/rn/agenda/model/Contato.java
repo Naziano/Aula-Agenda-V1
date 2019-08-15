@@ -1,14 +1,6 @@
 package br.senac.rn.agenda.model;
 
-// MVC ( Model, View e Controller).
-// Modelo: definir como as coisas são, defini os conceitos das coisas, ( aluno, bola, lâmpada e etc...).
-// View: São todos aqueles códigos que vai ter interação com o usuário, são as telas. (HTML,CSS e JAVA SCRIPT).
-// Controller: é o pacote onde vai ter as regras de negócio, quem determina é o cliente como vai ser.
-// Reprository ou DAO: É a base da pesistência de dados, onde o banco de dados vai buscar a informação. CRUD ( Inserir, Buscar, Editar e Excluir).
-
-// DAO ( Data, Access e Object)
-// CRUD ( Create(Inserir), Read(Buscar), Update(Editar) e Delete(Excluir)).
-
+import java.util.Objects;
 
 public class Contato {
 
@@ -16,18 +8,13 @@ public class Contato {
     private String nome;
     private String fone;
 
-    /*==========================================Construtor======================================================*/
-    public Contato() {
-    }
+    public Contato() {}
 
     public Contato(String nome, String fone) {
         this.nome = nome;
         this.fone = fone;
     }
 
-    /*=============================================Construtor====================================================*/
-
-    /*============================================get e set=====================================================*/
     public Long getId() {
         return id;
     }
@@ -50,6 +37,20 @@ public class Contato {
 
     public void setFone(String fone) {
         this.fone = fone;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contato contato = (Contato) o;
+        return Objects.equals(nome, contato.nome) &&
+                Objects.equals(fone, contato.fone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
     }
 
 }
